@@ -16,7 +16,6 @@ console.log(countdownEl, numbersListEl, formEl, btnEl, messageEl);
 ////////////////////////////////////////////////////////////////////////////
 
 /* 
-- inserimento di numeri in un form
 - verifica delle risposte
 */
 
@@ -64,4 +63,13 @@ formEl.addEventListener("submit", (e) => {
 
   const playerAnswers = getAnswers();
   console.log(playerAnswers);
+
+  const playerValue = Number(playerAnswers);
+  const gameValue = gameNumbers;
+
+  if (playerValue === gameValue) {
+    messageEl.innerText = "Hai Vinto";
+  }
 });
+
+// -verifica delle risposte //
