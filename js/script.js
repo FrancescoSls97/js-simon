@@ -6,7 +6,7 @@ const numbersListEl = document.getElementById("numbers-list");
 ///// elementi del form
 
 const formEl = document.getElementById("answers-form");
-const formControlEl = document.querySelectorAll("form-control");
+const formControlEl = document.getElementsByTagName("input");
 const btnEl = document.querySelector("btn");
 const messageEl = document.getElementById("message");
 
@@ -47,3 +47,21 @@ function hideNumbers() {
   numbersListEl.classList.add("d-none");
   formEl.classList.remove("d-none");
 }
+
+// - inserimento di numeri in un form
+
+formEl.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  function getAnswers() {
+    const answers = [];
+    for (i = 0; i < 5; i++) {
+      thisAnswer = formControlEl[i].value;
+      answers.push(thisAnswer);
+    }
+    return answers;
+  }
+
+  const playerAnswers = getAnswers();
+  console.log(playerAnswers);
+});
